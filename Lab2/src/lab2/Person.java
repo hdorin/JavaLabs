@@ -1,6 +1,6 @@
 package lab2;
 /**
- * Is an abstract class which is derived in Stundent.java
+ * Is an abstract class which is derived in Stundent.java and Teacher.java
  * @param teachers the list of students involved in the project
  */
 abstract class Person {
@@ -47,6 +47,5 @@ abstract class Person {
 	 */
 	public void setEmail(String email) {
 		this.email = email;
-
 	}
 }

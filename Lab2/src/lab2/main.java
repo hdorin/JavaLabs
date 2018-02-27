@@ -1,5 +1,11 @@
 package lab2;
 
+/**
+ * This is the main class of the package
+ * @author Haloca Dorin
+ * @author Mancas Mihai Danut
+ *
+ */
 public class main {
 
 	public static void main(String[] args) {

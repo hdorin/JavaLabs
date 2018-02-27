@@ -5,7 +5,7 @@ import java.util.Vector;
 
 /**
  * This class is derived from Person
- * 
+ * It stores the students and their preferences
  * 
  */
 public class Student extends Person {
@@ -49,11 +49,20 @@ public class Student extends Person {
         return this.nrOfPref;
     }
 
+    /**
+     * Overrides the toString function
+     * Returns a list with the elements
+     * @return the 
+     */
     @Override
     public String toString(){
         return  this.getName() +  ":" + this.getPreferences();
     }
 
+    /**
+     * Overrides the equals function
+     * @return a boolean value  
+     */
     @Override
     public boolean equals(Object o){
         if(this == o)
