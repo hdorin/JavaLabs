@@ -27,16 +27,24 @@ abstract class Person {
 
 	/**
 	 * Getter for the variable email of type String
-	 * @return email
+	 * @return email the email of the person
 	 */
 	public String getEmail() {
 		return email;
 	}
-
+	
+	/**
+	 * Setter for the variable name of type String
+	 * @param name the name of the person
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
+	/**
+	 * Setter for the variable email of type String
+	 * @param email the email of the person
+	 */
 	public void setEmail(String email) {
 		this.email = email;
 
