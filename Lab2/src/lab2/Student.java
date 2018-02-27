@@ -8,7 +8,7 @@ public class Student extends Person {
     private Integer nrOfPref;
 
     public Student(String name, String email){
-        super(name,email,"M",25);
+        super(name,email);
     }
 
     public void setPreferences(Project ... projects) {
