@@ -1,25 +1,23 @@
 package lab2;
 
-import java.util.Collections;
 import java.util.Vector;
 
-public class Student extends Person {
-    private Vector<Project> preferences;
+public class Teacher extends Person {
+    private Vector<Student> preferences;
     private Integer nrOfPref;
 
-    public Student(String name, String email){
-        super(name,email,"M",25);
+    public Teacher(String name, String email) {
+        super(name, email, "M", 25);
     }
 
-    public void setPreferences(Project ... projects) {
-        this.nrOfPref = projects.length;
-        for (Project project : projects)
-            this.preferences.add(project);
-
-        //Collections.addAll(this.preferences, projects);
+    public void setPreferences(Student ... students){
+        this.nrOfPref = students.length;
+        for (Student student: students) {
+            this.preferences.add(student);
+        }
     }
 
-    public Vector<Project> getPreferences() {
+    public Vector<Student> getPreferences() {
         return this.preferences;
     }
 
@@ -31,7 +29,6 @@ public class Student extends Person {
     public String toString(){
         return  this.getName() +  ":" + this.getPreferences();
     }
-
     @Override
     public boolean equals(Object o){
         if(this == o)
@@ -40,7 +37,7 @@ public class Student extends Person {
             return false;
         if(getClass() != o.getClass())
             return false;
-        Student student = (Student) o;
+        Teacher student = (Teacher) o;
         return this.getName().equals(student.getName()) && this.getPreferences().equals(student.getPreferences());
     }
 }
