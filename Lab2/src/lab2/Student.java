@@ -1,41 +1,46 @@
 package lab2;
 
+import java.util.Collections;
 import java.util.Vector;
 
 public class Student extends Person {
-    private Vector<String> prefList;
+    private Vector<Project> preferences;
     private Integer nrOfPref;
-    //public Student(){
-    //
-    //}
 
-    public Student(String name, String email, String sex, Integer age, Vector<String> prefList, Integer nrOfPref){
-        super(name,email,sex,age);
-
-        this.nrOfPref = nrOfPref;
-        for(Integer i = 0; i  < prefList.size(); i++)
-            this.prefList.set(i,prefList.get(i));
-
+    public Student(String name, String email){
+        super(name,email,"M",25);
     }
 
-    public void printPrefList(){
-        for (int i = 0;i < nrOfPref; i++)
-            System.out.println(prefList.get(i));
+    public void setPreferences(Project ... projects) {
+        this.nrOfPref = projects.length;
+        for (Project project : projects)
+            this.preferences.add(project);
+
+        //Collections.addAll(this.preferences, projects);
     }
 
-    public void setPrefList(Vector<String> prefList) {
-        this.prefList = prefList;
-    }
-
-    public void setNrOfPref(Integer nrOfPref) {
-        this.nrOfPref = nrOfPref;
+    public Vector<Project> getPreferences() {
+        return this.preferences;
     }
 
     public Integer getNrOfPref() {
-        return nrOfPref;
+        return this.nrOfPref;
     }
 
-    public Vector<String> getPrefList() {
-        return this.prefList;
+    @Override
+    public String toString(){
+        return  this.getName() +  ":" + this.preferences;
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if(this == student)
+            return true;
+        if(student == null)
+            return false;
+        if(getClass() != o.getClass())
+            return false;
+        Student student = (Student) o;
+        return this.getName().equals(student.getName()) && this.getPreferences().equals(student.getPreferences());
     }
 }
