@@ -31,8 +31,7 @@ public class Project {
 
 	@Override
 	public String toString() {
-
-		return super.toString() + this.name;
+		return this.name;
 	}
 
 }

@@ -27,9 +27,12 @@ class Problem {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		Vector<String> strings = new Vector<>(40);
-		for (Integer i = 0; i < this.students.size(); i++)
-			strings.add(students.elementAt(i).toString());
+		for (Integer i = 0; i < this.students.size(); i++) {
+			students.elementAt(i).toString();
+		}
+		for(Integer i = 0; i < this.teachers.size(); i++){
+			teachers.elementAt(i).toString();
+		}
 		return null;
 	}
 

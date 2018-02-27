@@ -19,6 +19,11 @@ public class Teacher extends Person {
     }
 
     public Vector<Student> getPreferences() {
+        System.out.print(this.getName() + ": [");
+        for (Integer i = 0; i < preferences.size(); i++)
+            System.out.print(preferences.elementAt(i).getName() + " ");
+
+        System.out.println("]");
         return this.preferences;
     }
 

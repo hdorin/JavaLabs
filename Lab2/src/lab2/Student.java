@@ -20,6 +20,11 @@ public class Student extends Person {
     }
 
     public Vector<Project> getPreferences() {
+        System.out.print(this.getName() + ": [");
+        for (Integer i = 0; i < preferences.size(); i++)
+            System.out.print(preferences.elementAt(i).toString() + " ");
+
+        System.out.println("]");
         return this.preferences;
     }
 
