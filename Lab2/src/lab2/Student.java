@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.Vector;
 
 public class Student extends Person {
-    private Vector<Project> preferences;
+    private Vector<Project> preferences = new Vector <Project>(20);
     private Integer nrOfPref;
 
     public Student(String name, String email){

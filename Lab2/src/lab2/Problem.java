@@ -3,8 +3,8 @@ package lab2;
 import java.util.Vector;
 
 class Problem {
-	private Vector<Student> students;
-	private Vector<Teacher> teachers;
+	private Vector<Student> students = new Vector<Student>(20);
+	private Vector<Teacher> teachers = new Vector<Teacher>(20);
 
 	public void setStudents(Student ... students) {
         for (Student student: students) {
@@ -18,8 +18,9 @@ class Problem {
         }
 	}
 
-	public String[] getParticipants() {
-		return students;
+	public Vector<Person> getParticipants() {
+		return null;
+		
 	}
 
 	@Override

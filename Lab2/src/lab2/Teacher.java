@@ -3,7 +3,7 @@ package lab2;
 import java.util.Vector;
 
 public class Teacher extends Person {
-    private Vector<Student> preferences;
+    private Vector<Student> preferences = new Vector<Student>(20);
     private Integer nrOfPref;
 
     public Teacher(String name, String email) {
