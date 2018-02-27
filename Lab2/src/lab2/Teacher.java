@@ -15,6 +15,7 @@ public class Teacher extends Person {
         for (Student student: students) {
             this.preferences.add(student);
         }
+
     }
 
     public Vector<Student> getPreferences() {
