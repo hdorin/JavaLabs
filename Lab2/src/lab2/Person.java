@@ -1,6 +1,6 @@
 package lab2;
 
-public abstract class Person {
+class Person {
 
 	private String name, email, sex;
 
