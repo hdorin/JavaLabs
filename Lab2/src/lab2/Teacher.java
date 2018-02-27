@@ -27,6 +27,17 @@ public class Teacher extends Person {
 
     @Override
     public String toString(){
-        return  this.getName() +  ":" + this.preferences;
+        return  this.getName() +  ":" + this.getPreferences();
+    }
+    @Override
+    public boolean equals(Object o){
+        if(this == o)
+            return true;
+        if(o == null)
+            return false;
+        if(getClass() != o.getClass())
+            return false;
+        Teacher student = (Teacher) o;
+        return this.getName().equals(student.getName()) && this.getPreferences().equals(student.getPreferences());
     }
 }

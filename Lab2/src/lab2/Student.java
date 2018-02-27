@@ -29,14 +29,14 @@ public class Student extends Person {
 
     @Override
     public String toString(){
-        return  this.getName() +  ":" + this.preferences;
+        return  this.getName() +  ":" + this.getPreferences();
     }
 
     @Override
     public boolean equals(Object o){
-        if(this == student)
+        if(this == o)
             return true;
-        if(student == null)
+        if(o == null)
             return false;
         if(getClass() != o.getClass())
             return false;
