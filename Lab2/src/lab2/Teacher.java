@@ -7,7 +7,7 @@ public class Teacher extends Person {
     private Integer nrOfPref;
 
     public Teacher(String name, String email) {
-        super(name, email, "M", 25);
+        super(name, email);
     }
 
     public void setPreferences(Student ... students){
