@@ -1,22 +1,31 @@
 package lab2;
 
+import java.util.Vector;
+
 class Problem {
-	String[] students=new String[4];
-	String[] teachers=new String[3];
-	public void setStudents(String s1,String s2,String s3,String s4) {
-		students[0]=s1;
-		students[1]=s2;
-		students[2]=s3;
-		students[3]=s4;
+	private Vector<Student> students;
+	private Vector<Teacher> teachers;
+
+	public void setStudents(Student ... students) {
+        for (Student student: students) {
+            this.students.add(student);
+        }
 	}
-	public void setTeachers(String t1,String t2,String t3) {
-		teachers[0]=t1;
-		teachers[1]=t2;
-		teachers[2]=t3;
+
+	public void setTeachers(Teacher ... teachers) {
+		for (Teacher teacher: teachers) {
+            this.teachers.add(teacher);
+        }
 	}
+
 	public String[] getParticipants() {
 		return students;
 	}
 
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return super.toString() + this.students + this.teachers;
+	}
 
 }
