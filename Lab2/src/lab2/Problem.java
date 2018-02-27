@@ -1,5 +1,6 @@
 package lab2;
 
+import java.util.ArrayList;
 import java.util.Vector;
 
 /**
@@ -47,6 +48,9 @@ class Problem {
 	 */
 	public String toString() {
 		// TODO Auto-generated method stub
-		return super.toString() + this.students + this.teachers;
+		Vector<String> strings = new Vector<>(40);
+		for (Integer i = 0; i < this.students.size(); i++)
+			strings.add(students.elementAt(i).toString());
+		return null;
 	}
 }
