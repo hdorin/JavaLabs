@@ -2,10 +2,20 @@ package lab2;
 
 import java.util.Vector;
 
+/**
+ * This class derives the abstract class Person
+ * It stores the teachers and their preferences
+ */
 public class Teacher extends Person {
     private Vector<Student> preferences = new Vector<Student>(20);
+    //folosit List 
     private Integer nrOfPref;
 
+    /**
+     * Class constructor
+     * @param name the name of the teacher
+     * @param email the email of the teacher
+     */
     public Teacher(String name, String email) {
         super(name, email);
     }
@@ -15,7 +25,6 @@ public class Teacher extends Person {
         for (Student student: students) {
             this.preferences.add(student);
         }
-
     }
 
     public Vector<Student> getPreferences() {
