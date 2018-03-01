@@ -8,7 +8,7 @@ import java.util.Vector;
  * It stores the students and their preferences
  * 
  */
-public class Student extends Person {
+class Student extends Person {
     private Vector<Project> preferences = new Vector <Project>(20);
     private Integer nrOfPref;
 
