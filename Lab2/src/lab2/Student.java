@@ -1,7 +1,7 @@
 package lab2;
 
-import java.util.Collections;
-import java.util.Vector;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * This class is derived from Person
@@ -9,7 +9,7 @@ import java.util.Vector;
  * 
  */
 public class Student extends Person {
-    private Vector<Project> preferences = new Vector <Project>(20);
+    private ArrayList<Project> preferences = new ArrayList<>();
     private Integer nrOfPref;
 
     /**
@@ -27,22 +27,20 @@ public class Student extends Person {
      */
     public void setPreferences(Project ... projects) {
         this.nrOfPref = projects.length;
-        for (Project project : projects)
-            this.preferences.add(project);
+        this.preferences.addAll(Arrays.asList(projects));
 
-        //Collections.addAll(this.preferences, projects);
     }
 
     /**
      * Gets the list of preferences of the student
      * @return this.preferences The list of preferences of the student
      */
-    public Vector<Project> getPreferences() {
-        System.out.print(this.getName() + ": [");
-        for (Integer i = 0; i < preferences.size(); i++)
-            System.out.print(preferences.elementAt(i).toString() + " ");
-
-        System.out.println("]");
+    public ArrayList<Project> getPreferences() {
+//        System.out.print(" [");
+//
+//        for(Project project: preferences)
+//            System.out.print(project.toString() + " ");
+//        System.out.println("]");
         return this.preferences;
     }
 

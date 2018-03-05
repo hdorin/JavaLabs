@@ -1,5 +1,7 @@
 package lab2;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Vector;
 
 /**
@@ -7,8 +9,7 @@ import java.util.Vector;
  * It stores the teachers and their preferences
  */
 public class Teacher extends Person {
-    private Vector<Student> preferences = new Vector<Student>(20);
-    //folosit List 
+    private ArrayList<Student> preferences = new ArrayList<>();
     private Integer nrOfPref;
 
     /**
@@ -22,17 +23,15 @@ public class Teacher extends Person {
 
     public void setPreferences(Student ... students){
         this.nrOfPref = students.length;
-        for (Student student: students) {
-            this.preferences.add(student);
-        }
+        this.preferences.addAll(Arrays.asList(students));
     }
 
-    public Vector<Student> getPreferences() {
-        System.out.print(this.getName() + ": [");
-        for (Integer i = 0; i < preferences.size(); i++)
-            System.out.print(preferences.elementAt(i).getName() + " ");
-
-        System.out.println("]");
+    public ArrayList<Student> getPreferences() {
+//        System.out.print(this.getName() + ": [");
+//        for (Student preference : preferences)
+//            System.out.print(preference.getName() + " ");
+//
+//        System.out.println("]");
         return this.preferences;
     }
 
