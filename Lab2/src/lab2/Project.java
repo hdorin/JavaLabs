@@ -1,6 +1,6 @@
 package lab2;
 
-public class Project {
+class Project {
 	private String name;
 	private int capacity;
 
