@@ -7,4 +7,17 @@ class Jewel extends Item {
 		this.name=name;
 		this.price=price;
 	}
+
+	public int getPrice() {
+		return this.price;
+	}
+
+    @Override
+    public String getName() {
+        return this.name;
+    }
+
+    public String toString(){
+		return getName() + " " + getPrice();
+	}
 }

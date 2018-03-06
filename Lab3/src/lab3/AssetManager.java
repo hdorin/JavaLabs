@@ -4,6 +4,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 
 
 class AssetManager {
@@ -13,9 +14,11 @@ class AssetManager {
 	public AssetManager() {
 
 	}
+
 	public void add(Item ... itemsArg) {
         this.items.addAll(Arrays.asList(itemsArg));
-		Collections.sort(items);
+		Collections.sort(items, new Sortbyroll());
+
 	}
 
 
@@ -24,4 +27,11 @@ class AssetManager {
 	}
 
 
+}
+
+class Sortbyroll implements Comparator<Item> {
+    public int compare(Item a, Item b)
+    {
+        return a.getName().compareTo(b.getName());
+    }
 }

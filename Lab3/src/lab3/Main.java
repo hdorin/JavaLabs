@@ -1,7 +1,5 @@
 package lab3;
 
-import java.util.ArrayList;
-
 public class Main {
 
     public static void main(String[] args) {
@@ -25,11 +23,6 @@ public class Main {
         am.add(vehicle1,vehicle2);
         am.add(jewel);
         System.out.println(am.getItems());
-
-//
-//        buildings.add(building1);
-//        buildings.add(building2);
-//        buildings.add(building3);
 
 
     }
