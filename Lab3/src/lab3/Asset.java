@@ -1,5 +1,5 @@
 package lab3;
 
-public interface Asset {
+interface Asset {
     public Integer computeProfit(Object obj);
 }

@@ -1,6 +1,6 @@
 package lab3;
 
-public abstract class Item {
+abstract class Item {
     /**
      * @param name of the object
      */
