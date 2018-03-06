@@ -1,6 +1,6 @@
 package lab3;
 
-abstract class Item  implements Comparable<Item>{
+abstract class Item  {
     /**
      * @param name of the object
      */
@@ -21,9 +21,6 @@ abstract class Item  implements Comparable<Item>{
         return this.name;
     }
     
-	@Override
-	public int compareTo(Item i) {
-		return i.name.compareTo(this.name);
-	}
+	
     
 }
