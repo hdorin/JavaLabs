@@ -44,11 +44,12 @@ public class main {
 		prob.setStudents(s1,s2,s3,s4);
 		prob.setTeachers(t1,t2,t3);
 
-        ArrayList<Person> people = prob.getParticipants();
-        for (Person person : people)
-            System.out.println(person);
-
-		
+//        ArrayList<Person> people = prob.getParticipants();
+//        for (Person person : people)
+//            System.out.println(person);
+//
+//        System.out.println("\n\n");
+        System.out.println(prob);
 	}
 
 }

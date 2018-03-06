@@ -50,12 +50,16 @@ class Problem {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
+//        String st = "";
 		for (Student student : students) {
-			student.getPreferences();
+            System.out.println(student.getName() + student.getPreferences());
+//            st += student;
 		}
+		System.out.println();
 		for (Teacher teacher : this.teachers) {
-			teacher.getPreferences();
-		}
-		return null;
+            System.out.println(teacher.getName() + teacher.getPreferences());
+//            st += teacher;
+        }
+        return "";
 	}
 }
