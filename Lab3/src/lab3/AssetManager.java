@@ -8,16 +8,19 @@ import java.util.Comparator;
 
 class AssetManager {
 	private ArrayList<Item> items;
+
+
 	public AssetManager() {
-		
+
 	}
-	public void add(Item ... itemsParam) {
-		this.items.addAll(Arrays.asList(itemsParam));
+	public void add(ArrayList<Item> itemsArg) {
+//		this.items.addAll(Arrays.asList(itemsArg));
+        items.addAll(itemsArg);
 		Collections.sort(items);
 	}
 	public ArrayList<Item> getItems(){
 		return items;
 	}
-	
+
 
 }
