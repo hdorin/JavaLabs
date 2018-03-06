@@ -6,19 +6,16 @@ import java.util.Collections;
 
 
 class AssetManager {
-	private ArrayList<Item> items;
+	private ArrayList<Item> itemNames;
 
 
-	public AssetManager() {
+	public void add(Item ... itemsArg) {
+		this.itemNames.addAll(Arrays.asList(itemsArg));
 
+		Collections.sort(itemNames);
 	}
-	public void add(ArrayList<Item> itemsArg) {
-//		this.items.addAll(Arrays.asList(itemsArg));
-        items.addAll(itemsArg);
-		Collections.sort(items);
-	}
-	public ArrayList<Item> getItems(){
-		return items;
+	public String getItems(){
+		return " ";
 	}
 
 
