@@ -10,7 +10,7 @@ class Building extends Item implements Asset {
     }
 
     @Override
-    public Integer computeProfit(Object obj) {
+    public Integer computeProfit() {
         return area / price;
     }
 
@@ -28,5 +28,10 @@ class Building extends Item implements Asset {
 
     public Integer getPrice() {
         return price;
+    }
+
+    @Override
+    public String toString(){
+        return getName() + " " + getArea() + " " + getPrice();
     }
 }
