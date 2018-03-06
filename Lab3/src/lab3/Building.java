@@ -1,10 +1,11 @@
 package lab3;
 
-class Building extends Item implements Asset {
+class Building extends Asset {
     private Integer area, price;
 
     Building(String name, Integer area, Integer price){
-        super(name);
+        //super(name);
+    	this.name=name;
         this.area = area;
         this.price = price;
     }

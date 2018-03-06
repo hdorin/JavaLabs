@@ -16,21 +16,38 @@ class AssetManager {
 
 	public void add(Item ... itemsArg) {
         this.items.addAll(Arrays.asList(itemsArg));
-		Collections.sort(items, new Sortbyroll());
+
 
 	}
 
 
     public ArrayList<Item> getItems(){
+		Collections.sort(items, new SortByName());
 		return items;
 	}
+    public ArrayList<Asset> getAssets(){
+		Collections.sort(items, new SortByProfit());
+		return items;
+	}
+    
+    //public ArrayList<Item> getAssests(){
+    //	Collection.sort(items,new )
+    //}
 
-
-}
-
-class Sortbyroll implements Comparator<Item> {
-    public int compare(Item a, Item b)
-    {
-        return a.getName().compareTo(b.getName());
+    class SortByName implements Comparator<Item> {
+        public int compare(Item a, Item b)
+        {
+            return a.getName().compareTo(b.getName());
+        }
+    }
+    
+    class SortByProfit implements Comparator<Asset>  {
+        public int compare(Asset a, Asset b)
+        {
+            return a.computeProfit().compareTo(b.computeProfit());
+        }
     }
 }
+
+
+
