@@ -1,14 +1,14 @@
 package lab2;
 
-import java.util.Vector;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * This class derives the abstract class Person
  * It stores the teachers and their preferences
  */
-class Teacher extends Person {
-    private Vector<Student> preferences = new Vector<Student>(20);
-    //folosit List 
+public class Teacher extends Person {
+    private ArrayList<Student> preferences = new ArrayList<>();
     private Integer nrOfPref;
 
     /**
@@ -20,51 +20,28 @@ class Teacher extends Person {
         super(name, email);
     }
 
-    /**
-     * Setter for the vector preferences
-     * @param students
-     */
     public void setPreferences(Student ... students){
         this.nrOfPref = students.length;
-        for (Student student: students) {
-            this.preferences.add(student);
-        }
+        this.preferences.addAll(Arrays.asList(students));
     }
-    /**
-     * Getter for the vector preferences
-     * @return this.preferences
-     */
-    public Vector<Student> getPreferences() {
-        System.out.print(this.getName() + ": [");
-        for (Integer i = 0; i < preferences.size(); i++)
-            System.out.print(preferences.elementAt(i).getName() + " ");
 
-        System.out.println("]");
+    public ArrayList<Student> getPreferences() {
+//        System.out.print(this.getName() + ": [");
+//        for (Student preference : preferences)
+//            System.out.print(preference.getName() + " ");
+//
+//        System.out.println("]");
         return this.preferences;
     }
 
-    /**
-     * Getter for NrOfPref
-     * @return this.nrOfPref
-     */
     public Integer getNrOfPref() {
         return this.nrOfPref;
     }
 
-    /**
-     * Overrides the function toString
-     * Returns a list with the elements
-     * @return 
-     */
     @Override
     public String toString(){
         return  this.getName() +  ":" + this.getPreferences();
     }
-    
-    /**
-     * Overrides the function equals
-     * @return a boolean value
-     */
     @Override
     public boolean equals(Object o){
         if(this == o)

@@ -1,7 +1,7 @@
 package lab2;
 
 import java.util.ArrayList;
-import java.util.Vector;
+import java.util.Arrays;
 
 /**
  * This class stores the the participants involved, be them
@@ -9,17 +9,15 @@ import java.util.Vector;
  */
 
 class Problem {
-	private Vector<Student> students = new Vector<Student>(20);
-	private Vector<Teacher> teachers = new Vector<Teacher>(20);
+	private ArrayList<Student> students = new ArrayList<>();
+	private ArrayList<Teacher> teachers = new ArrayList<>();
 
 	/**
 	 * Sets the students who are involved 
 	 * @param students the list of students involved
 	 */
 	public void setStudents(Student ... students) {
-        for (Student student: students) {
-            this.students.add(student);
-        }
+		this.students.addAll(Arrays.asList(students));
 	}
 	
 	/**
@@ -27,32 +25,36 @@ class Problem {
 	 * @param teachers the list of students involved
 	 */
 	public void setTeachers(Teacher ... teachers) {
-		for (Teacher teacher: teachers) {
-            this.teachers.add(teacher);
-        }
+		this.teachers.addAll(Arrays.asList(teachers));
 	}
-	
+
 	/**
 	 * Returns a list of participants 
-	 * @return participants in a vector of type Person
+	 * @return participants in a ArrayList of type Person
 	 */
-	public Vector<Person> getParticipants() {
-		return null;
+	public ArrayList<Person> getParticipants() {
+        ArrayList<Person> people = new ArrayList<>(students);
+        people.addAll(teachers);
+		return people;
 		
 	}
 
+	public void getMatching(){
+
+    }
+
+    /**
+     * Returns a string with the elements of the object
+     * @return string with the students and teachers involved
+     */
 	@Override
-	/**
-	 * Returns a string with the elements of the object 
-	 * @return string with the students and teachers involved
-	 */
 	public String toString() {
 		// TODO Auto-generated method stub
-		for (Integer i = 0; i < this.students.size(); i++) {
-			students.elementAt(i).toString();
+		for (Student student : students) {
+			student.getPreferences();
 		}
-		for(Integer i = 0; i < this.teachers.size(); i++){
-			teachers.elementAt(i).toString();
+		for (Teacher teacher : this.teachers) {
+			teacher.getPreferences();
 		}
 		return null;
 	}
