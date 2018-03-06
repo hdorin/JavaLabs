@@ -1,4 +1,4 @@
-package com.company;
+package lab3;
 
 public class Building extends Item implements Asset {
     private Integer area, price;
@@ -10,7 +10,7 @@ public class Building extends Item implements Asset {
     }
 
     @Override
-    public Integer computeProfit(Object obj) {
+    public Integer computeProfit() {
         return area / price;
     }
 
@@ -28,5 +28,10 @@ public class Building extends Item implements Asset {
 
     public Integer getPrice() {
         return price;
+    }
+
+    @Override
+    public String toString(){
+        return getName() + " " + getArea() + " " + getPrice();
     }
 }
