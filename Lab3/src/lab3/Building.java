@@ -1,4 +1,4 @@
-package com.company;
+package lab3;
 
 public class Building extends Item implements Asset {
     private Integer area, price;

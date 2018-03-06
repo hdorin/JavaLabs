@@ -1,4 +1,4 @@
-package com.company;
+package lab3;
 
 public interface Asset {
     public Integer computeProfit(Object obj);
