@@ -1,28 +1,20 @@
 package lab3;
 
-import java.lang.reflect.Array;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 
-class AssetManager {
-<<<<<<< HEAD
-	private ArrayList<Item> itemNames;
-=======
-	private ArrayList<Item> items = new ArrayList<>(50);
->>>>>>> ace642ca7b7d852a26ee4af98181c86f0c283014
+class AssetManager implements Comparator<Item>{
+	private ArrayList<Item> items = new ArrayList<Item>(50);
 
 
-	public void add(Item ... itemsArg) {
-		this.itemNames.addAll(Arrays.asList(itemsArg));
+	public AssetManager() {
 
-		Collections.sort(itemNames);
 	}
-<<<<<<< HEAD
-	public String getItems(){
-		return " ";
-=======
 	public void add(Item ... itemsArg) {
         this.items.addAll(Arrays.asList(itemsArg));
 		Collections.sort(items);
@@ -31,8 +23,12 @@ class AssetManager {
 
     public ArrayList<Item> getItems(){
 		return items;
->>>>>>> ace642ca7b7d852a26ee4af98181c86f0c283014
 	}
-
+    
+	
+	@Override
+	public int compare(Item item1, Item item2) {
+		return item1.getName().compareTo(item2.getName());
+	}
 
 }
