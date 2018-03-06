@@ -21,7 +21,7 @@ public class Main {
         System.out.println(vehicle1);
 
         AssetManager am = new AssetManager();
-        am.add(building1,building2);
+        am.add(building1, building2, building3);
         am.add(vehicle1,vehicle2);
         am.add(jewel);
         System.out.println(am.getItems());
