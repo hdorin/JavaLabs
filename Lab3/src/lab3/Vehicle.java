@@ -4,7 +4,8 @@ class Vehicle extends Item implements Asset{
     private Integer performance, price;
 
     Vehicle(String name, Integer performance, Integer price){
-        super(name);
+        //super(name);
+    	this.name=name;
         this.performance = performance;
         this.price = price;
     }
