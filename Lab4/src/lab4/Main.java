@@ -9,6 +9,8 @@ public class Main {
 		Book b=new Book();
 		
 		b.setlocalPath("C:user/");
+
+        System.out.println("Hello world!");
 	}
 
 }
