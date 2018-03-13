@@ -1,11 +1,12 @@
 package lab4;
 
 import java.io.DataOutputStream;
+import java.io.FileInputStream;
 import java.io.ObjectOutputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
+import java.io.ObjectInputStream;
 import java.io.FileOutputStream;
 
 import java.io.Serializable;
@@ -55,7 +56,28 @@ public class Catalog implements Serializable{
     }
 
     public void load (String path) {
-
+    	FileInputStream fos;
+		try {
+			fos = new FileInputStream(path);
+		} catch (FileNotFoundException e) {
+			throw new InvalidInputException("Invalid path!");
+		}
+		ObjectInputStream in;
+		try {
+			in = new ObjectInputStream(fos);
+		} catch (IOException e1) {
+			throw new InvalidInputException("Could not initialize ObjectOutputStream!");
+		}
+    	try {
+    		documents=(ArrayList<Document>) in.readObject();
+		} catch (IOException e) {
+			throw new InvalidInputException("Could not serialize object!");
+		}
+    	try {
+			in.close();
+		} catch (IOException e) {
+			throw new InvalidInputException("Could not close ObjectOutputStream!");
+		}
     }
 
     public void list (){
