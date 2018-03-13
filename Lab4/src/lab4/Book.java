@@ -3,6 +3,7 @@ package lab4;
 import java.io.Serializable;
 
 final class Book extends Document implements Serializable {
+	private static final long serialVersionUID = 1L;
 	private String publisher;
 
 	public Book(String title, String path, Integer year, String ... authors) {

@@ -2,8 +2,9 @@ package lab4;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.Serializable;
 
-abstract class Document {
+abstract class Document implements Serializable {
 	protected String title;
 	protected String[] authors;
 	protected int year;
@@ -63,9 +64,9 @@ abstract class Document {
 				FileReader f = new FileReader("fisier.txt");
 				f.close();
 			} catch (FileNotFoundException e) {
-				throw new InvalidInputException("Invalid path!");
+				//throw new InvalidInputException("Invalid path!");
 			} catch (Exception e) {
-				throw new InvalidInputException("Unexpected error!");
+				//throw new InvalidInputException("Unexpected error!");
 			}		
 		this.localPath = localPath;
 	}
