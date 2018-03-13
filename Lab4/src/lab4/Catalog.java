@@ -1,6 +1,8 @@
 package lab4;
 
+import java.awt.Desktop;
 import java.io.DataOutputStream;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.ObjectOutputStream;
 import java.io.FileNotFoundException;
@@ -53,6 +55,13 @@ public class Catalog implements Serializable{
     }
 
     public void open (String path) {
+    	File f = new File(path);
+    	Desktop desktop = Desktop.getDesktop();
+    	try {
+			desktop.open(f);
+		} catch (IOException e) {
+			throw new InvalidInputException("Could not open file!");
+		}
     }
 
     public void load (String path) {

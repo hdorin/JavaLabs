@@ -15,8 +15,9 @@ public class Main {
         catalog.add (new Manual("Cookbook", "d:/stuff/cookbook.doc"));
         catalog.save("d:/catalog.dat");*/
         //...
-        catalog.load("d:/catalog.dat");
-        catalog.list();
+        //catalog.load("d:/catalog.dat");
+        //catalog.list();
+        catalog.open("C:/Users/haloc/Desktop/1.jpg");
 	}
 
 }
