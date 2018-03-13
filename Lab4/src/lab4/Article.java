@@ -27,4 +27,9 @@ final class Article extends Document implements Serializable {
 	private void setJournal(String journal) {
 		this.journal = journal;
 	}
+
+
+	public String toString() {
+		return this.getTitle() + " " + this.getlocalPath() + " ";
+	}
 }

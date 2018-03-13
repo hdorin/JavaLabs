@@ -5,6 +5,9 @@ import java.io.ObjectOutputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
+import java.io.FileOutputStream;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -49,7 +52,6 @@ public class Catalog implements Serializable{
     }
 
     public void open (String path) {
-    	
     }
 
     public void load (String path) {

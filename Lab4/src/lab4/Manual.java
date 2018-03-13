@@ -11,4 +11,8 @@ public class Manual extends Document implements Serializable {
         this.year = 0;
     }
 
+    public String toString() {
+        return this.getTitle() + " " + this.getlocalPath() + " ";
+    }
+
 }
