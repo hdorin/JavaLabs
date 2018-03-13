@@ -70,8 +70,10 @@ public class Catalog implements Serializable{
 		}
     	try {
     		documents=(ArrayList<Document>) in.readObject();
+		} catch (ClassNotFoundException e) {
+			throw new InvalidInputException("Class not found!");
 		} catch (IOException e) {
-			throw new InvalidInputException("Could not serialize object!");
+			throw new InvalidInputException("Could not deserialize!");
 		}
     	try {
 			in.close();
