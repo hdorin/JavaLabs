@@ -19,8 +19,9 @@ abstract class Document implements Serializable {
 	}
 	/**
 	 * @param title the title to set
+	 * @throws InvalidInputException 
 	 */
-	protected void setTitle(String title) {
+	protected void setTitle(String title) throws InvalidInputException {
 		if(title.length()==0) {
 			throw new InvalidInputException("No title specified!");
 		}
@@ -35,8 +36,9 @@ abstract class Document implements Serializable {
 	}
 	/**
 	 * @param author the author to set
+	 * @throws InvalidInputException 
 	 */
-	protected void setAuthors(String[] authors) {
+	protected void setAuthors(String[] authors) throws InvalidInputException {
 		if(authors.length==0 || authors==null) {
 			throw new InvalidInputException("No authors specified!");
 		}
@@ -50,8 +52,9 @@ abstract class Document implements Serializable {
 	}
 	/**
 	 * @param year the year to set
+	 * @throws InvalidInputException 
 	 */
-	protected void setYear(int year){
+	protected void setYear(int year) throws InvalidInputException{
 		if(year<0) {
 			throw new InvalidInputException("Invalid year value!");
 		}

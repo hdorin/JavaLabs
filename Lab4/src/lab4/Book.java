@@ -6,7 +6,7 @@ final class Book extends Document implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String publisher;
 
-	public Book(String title, String path, Integer year, String ... authors) {
+	public Book(String title, String path, Integer year, String ... authors) throws InvalidInputException {
 		setTitle(title);
 		setlocalPath(path);
 		setYear(year);
@@ -29,8 +29,9 @@ final class Book extends Document implements Serializable {
 
 	/**
 	 * @param publisher the publisher to set
+	 * @throws InvalidInputException 
 	 */
-	private void setPublisher(String publisher) {
+	private void setPublisher(String publisher) throws InvalidInputException {
 		if(publisher.length()==0) {
 			throw new InvalidInputException("No publisher specified!");
 		}
