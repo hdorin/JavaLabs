@@ -32,5 +32,10 @@ final class Book extends Document implements Serializable {
 	private void setPublisher(String publisher) {
 		this.publisher = publisher;
 	}
+
+
+	public String toString() {
+		return this.getTitle() + " " + this.getlocalPath() + " ";
+	}
 	
 }

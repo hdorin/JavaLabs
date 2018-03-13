@@ -1,5 +1,7 @@
 package lab4;
 
+import java.io.FileOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Catalog {
@@ -17,6 +19,7 @@ public class Catalog {
 
     public void open (String path) {
 
+        
     }
 
     public void load (String path) {
