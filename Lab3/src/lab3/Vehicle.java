@@ -1,6 +1,6 @@
 package lab3;
 
-class Vehicle extends Item implements Asset{
+class Vehicle extends Asset{
     private Integer performance, price;
 
     Vehicle(String name, Integer performance, Integer price){
