@@ -66,9 +66,7 @@ abstract class Document {
 				throw new InvalidInputException("Invalid path!");
 			} catch (Exception e) {
 				throw new InvalidInputException("Unexpected error!");
-			}
-
-		
+			}		
 		this.localPath = localPath;
 	}
 }
