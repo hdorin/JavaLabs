@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.Serializable;
 
 abstract class Document implements Serializable {
+	private static final long serialVersionUID = 1L;
 	protected String title;
 	protected String[] authors;
 	protected int year;
@@ -20,6 +21,9 @@ abstract class Document implements Serializable {
 	 * @param title the title to set
 	 */
 	protected void setTitle(String title) {
+		if(title.length()==0) {
+			throw new InvalidInputException("No title specified!");
+		}
 		this.title = title;
 	}
 	/**
@@ -33,6 +37,9 @@ abstract class Document implements Serializable {
 	 * @param author the author to set
 	 */
 	protected void setAuthors(String[] authors) {
+		if(authors.length==0 || authors==null) {
+			throw new InvalidInputException("No authors specified!");
+		}
 		this.authors = authors;
 	}
 	/**

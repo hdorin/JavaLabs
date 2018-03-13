@@ -17,7 +17,8 @@ public class Main {
         //...
         //catalog.load("d:/catalog.dat");
         //catalog.list();
-        catalog.open("C:/Users/haloc/Desktop/1.jpg");
+        catalog.add (new Article("Cel mai fain titlu", "d:/articles/AlphaGo.pdf", 2017,"ceva"));
+        catalog.open(new Manual("Cookbook", "C:/Users/haloc/Desktop/1.jpg"));
 	}
 
 }

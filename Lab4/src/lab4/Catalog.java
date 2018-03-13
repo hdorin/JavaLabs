@@ -21,6 +21,9 @@ public class Catalog implements Serializable{
 
 
     public void add (Document document){
+        if(document==null) {
+        	throw new InvalidInputException("No document specified!");
+        }
         this.documents.add(document);
     }
 
@@ -54,8 +57,8 @@ public class Catalog implements Serializable{
 		}
     }
 
-    public void open (String path) {
-    	File f = new File(path);
+    public void open (Document doc) {
+    	File f = new File(doc.getlocalPath());
     	Desktop desktop = Desktop.getDesktop();
     	try {
 			desktop.open(f);

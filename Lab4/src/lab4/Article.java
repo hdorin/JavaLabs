@@ -25,10 +25,13 @@ final class Article extends Document implements Serializable {
 	 * @param journal the journal to set
 	 */
 	private void setJournal(String journal) {
+		if(journal.length()==0) {
+			throw new InvalidInputException("No journal specified!");
+		}
 		this.journal = journal;
 	}
 
-
+	@Override
 	public String toString() {
 		return this.getTitle() + " " + this.getlocalPath() + " ";
 	}

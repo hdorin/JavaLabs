@@ -31,10 +31,13 @@ final class Book extends Document implements Serializable {
 	 * @param publisher the publisher to set
 	 */
 	private void setPublisher(String publisher) {
+		if(publisher.length()==0) {
+			throw new InvalidInputException("No publisher specified!");
+		}
 		this.publisher = publisher;
 	}
 
-
+	@Override
 	public String toString() {
 		return this.getTitle() + " " + this.getlocalPath() + " ";
 	}
