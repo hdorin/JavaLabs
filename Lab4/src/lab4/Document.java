@@ -4,10 +4,10 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 
 abstract class Document {
-	protected String title=new String();
-	protected String author=new String();
+	protected String title;
+	protected String[] authors;
 	protected int year;
-	protected String localPath=new String();
+	protected String localPath;
 
 	/**
 	 * @return the title
@@ -25,14 +25,14 @@ abstract class Document {
 	 * @return the author
 	 * @throws NotSetException 
 	 */
-	protected String getAuthor() {
-		return author;
+	protected String[] getAuthors() {
+		return authors;
 	}
 	/**
 	 * @param author the author to set
 	 */
-	protected void setAuthor(String author) {
-		this.author = author;
+	protected void setAuthors(String[] authors) {
+		this.authors = authors;
 	}
 	/**
 	 * @return the year
