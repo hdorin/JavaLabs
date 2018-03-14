@@ -1,7 +1,18 @@
 package lab4;
 
-final class Article extends Document{
-	private String journal=new String();
+import java.io.Serializable;
+
+final class Article extends Document implements Serializable {
+	private static final long serialVersionUID = 1L;
+	private String journal;
+
+	public Article(String title, String path, int year, String ... authors) throws InvalidInputException {
+		super();
+		setTitle(title);
+		setlocalPath(path);
+		setYear(year);
+        setAuthors(authors);
+	}
 
 	/**
 	 * @return the journal
@@ -12,8 +23,17 @@ final class Article extends Document{
 
 	/**
 	 * @param journal the journal to set
+	 * @throws InvalidInputException 
 	 */
-	private void setJournal(String journal) {
+	private void setJournal(String journal) throws InvalidInputException {
+		if(journal.length()==0) {
+			throw new InvalidInputException("No journal specified!");
+		}
 		this.journal = journal;
+	}
+
+	@Override
+	public String toString() {
+		return this.getTitle() + " " + this.getlocalPath() + " ";
 	}
 }
