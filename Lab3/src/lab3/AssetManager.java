@@ -8,6 +8,7 @@ import java.util.Comparator;
 
 class AssetManager {
 	private ArrayList<Item> items = new ArrayList<>(50);
+	private ArrayList<Asset> assets = new ArrayList<>(50);
 
 
 	public AssetManager() {
@@ -26,8 +27,8 @@ class AssetManager {
 		return items;
 	}
     public ArrayList<Asset> getAssets(){
-		Collections.sort(items, new SortByProfit());
-		return items;
+		Collections.sort(assets, new SortByProfit());
+		return assets;
 	}
     
     //public ArrayList<Item> getAssests(){
