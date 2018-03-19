@@ -5,13 +5,14 @@ import javax.swing.JFrame;
 public class CatalogFrame extends JFrame {
 	private static final long serialVersionUID = 1L;
 	DocumentForm form;
-    CatalogList list;
+    CatalogList catalogList;
     ControlPanel controlPanel;    
     JFrame mainFrame;
    	
     public CatalogFrame() {
         mainFrame = new JFrame("Visual Document Manager");
         controlPanel=new ControlPanel(mainFrame);
+        //catalogList=new CatalogList(mainFrame);
         init();
     }
     private void init() {
