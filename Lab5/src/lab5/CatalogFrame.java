@@ -1,17 +1,17 @@
 package lab5;
 
-import java.awt.Frame;
-
 import javax.swing.JFrame;
 
 public class CatalogFrame extends JFrame {
 	private static final long serialVersionUID = 1L;
 	DocumentForm form;
     CatalogList list;
-    ControlPanel control;       
+    ControlPanel controlPanel;    
+    JFrame mainFrame;
    	
     public CatalogFrame() {
-        super("Visual Document Manager");
+        mainFrame = new JFrame("Visual Document Manager");
+        controlPanel=new ControlPanel(mainFrame);
         init();
     }
     private void init() {
@@ -20,8 +20,15 @@ public class CatalogFrame extends JFrame {
     }
 	public void setVisible(boolean b) {
 		// TODO Auto-generated method stub
-		// Create the window (frame)
-		Frame f = new Frame("O fereastra");
-		f.setVisible(true);
+		/*
+		f.add(new JButton("Hello"));
+		JPanel panel = new JPanel();
+		panel.add(new JLabel("Name:")); 
+		panel.add(new JButton("B1"));
+		panel.add(new JTextField());
+		f.add(panel);*/
+		mainFrame.pack();
+		mainFrame.setVisible(true);
+		
 	}	
 }
