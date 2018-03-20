@@ -1,5 +1,7 @@
 package lab5;
 
+import java.awt.GridLayout;
+
 import javax.swing.JFrame;
 
 public class CatalogFrame extends JFrame {
@@ -7,29 +9,24 @@ public class CatalogFrame extends JFrame {
 	DocumentForm form;
     CatalogList catalogList;
     ControlPanel controlPanel;    
-    JFrame mainFrame;
    	
     public CatalogFrame() {
-        mainFrame = new JFrame("Visual Document Manager");
-        controlPanel=new ControlPanel(mainFrame);
-        //catalogList=new CatalogList(mainFrame);
+    	super("Visual Document Manager");
+        this.setLayout(new GridLayout(2, 2));
+        //aici adaugi tu, Mihai
+        catalogList=new CatalogList();
+        
+        this.add(catalogList);
+        controlPanel=new ControlPanel(this);
+        this.add(controlPanel);
+        //controlPanel=new ControlPanel(mainFrame);
+        
         init();
     }
     private void init() {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        this.pack();
         
     }
-	public void setVisible(boolean b) {
-		// TODO Auto-generated method stub
-		/*
-		f.add(new JButton("Hello"));
-		JPanel panel = new JPanel();
-		panel.add(new JLabel("Name:")); 
-		panel.add(new JButton("B1"));
-		panel.add(new JTextField());
-		f.add(panel);*/
-		mainFrame.pack();
-		mainFrame.setVisible(true);
-		
-	}	
+	
 }

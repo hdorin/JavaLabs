@@ -5,17 +5,18 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class ControlPanel extends JPanel {
-    private final JPanel controlPanel=new JPanel();
+	private final CatalogFrame catalogFrame;
     
     JButton loadBtn = new JButton("Load");
     JButton saveBtn = new JButton("Save");
 
-    public ControlPanel(JFrame frame) {
+    public ControlPanel(CatalogFrame catalogFrame) {
+    	this.catalogFrame=catalogFrame;
         init();
-        frame.add(controlPanel);
+        
     }
     private void init() {
-        controlPanel.add(loadBtn);
-        controlPanel.add(saveBtn);
+        this.add(loadBtn);
+        this.add(saveBtn);
     }
 }

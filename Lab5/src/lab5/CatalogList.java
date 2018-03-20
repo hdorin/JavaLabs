@@ -3,20 +3,21 @@ package lab5;
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.ListSelectionModel;
 
 public class CatalogList extends JList {
-	private static final long serialVersionUID = 1L;
-	DefaultListModel model = new DefaultListModel();
-	JList catalogList = new JList(model);
+    DefaultListModel model = new DefaultListModel<>();
 	
-    public CatalogList(JFrame frame) {
+    public CatalogList() {
         String title = "<html><i><font color='blue'>" + 
 		    "Catalog Documents" + "</font></i></hmtl>";
-        
-        frame.add(catalogList);
+        this.setBorder(BorderFactory.createTitledBorder(title));
+        this.setModel(model);        
     }    
     public void addDocument(String item) {
-        //catalogList.addElement(item);
+        model.addElement(item);
     }
-}	
+}
