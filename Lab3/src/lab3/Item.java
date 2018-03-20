@@ -1,6 +1,6 @@
 package lab3;
 
-abstract class Item  implements Comparable<Item>{
+abstract class Item implements Comparable<Item>{
     /**
      * @param name of the object
      */

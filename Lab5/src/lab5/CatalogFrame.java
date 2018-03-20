@@ -1,30 +1,33 @@
 package lab5;
 
-import java.awt.GridLayout;
+import java.awt.*;
 
-import javax.swing.JFrame;
+import javax.swing.*;
 
-public class CatalogFrame extends JFrame {
+class CatalogFrame extends JFrame {
 	private static final long serialVersionUID = 1L;
-	DocumentForm form;
-    CatalogList catalogList;
-    ControlPanel controlPanel;    
+	private DocumentForm form;
+    private CatalogList catalogList;
+    private ControlPanel controlPanel;
    	
-    public CatalogFrame() {
+    CatalogFrame() {
     	super("Visual Document Manager");
-        this.setLayout(new GridLayout(2, 2));
+        this.setLayout(new GridLayout(3, 1));
         //aici adaugi tu, Mihai
+
+        form = new DocumentForm(this);
+        this.add(form);
+
         catalogList=new CatalogList();
-        
         this.add(catalogList);
         controlPanel=new ControlPanel(this);
         this.add(controlPanel);
-        //controlPanel=new ControlPanel(mainFrame);
-        
+
         init();
     }
     private void init() {
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+//        setSize(500,500);
         this.pack();
         
     }

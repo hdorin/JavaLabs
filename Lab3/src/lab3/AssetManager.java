@@ -6,21 +6,13 @@ import java.util.Collections;
 import java.util.Comparator;
 
 
-class AssetManager {
+class AssetManager implements Asset{
 	private ArrayList<Item> items = new ArrayList<>(50);
 	private ArrayList<Asset> assets = new ArrayList<>(50);
 
-
-	public AssetManager() {
-
-	}
-
 	public void add(Item ... itemsArg) {
         this.items.addAll(Arrays.asList(itemsArg));
-
-
 	}
-
 
     public ArrayList<Item> getItems(){
 		Collections.sort(items, new SortByName());
@@ -30,7 +22,17 @@ class AssetManager {
 		Collections.sort(assets, new SortByProfit());
 		return assets;
 	}
-    
+
+    @Override
+    public double computeProfit() {
+        return 0.5;
+    }
+
+    @Override
+    public double computeFinancialRisk() {
+        return 0;
+    }
+
     //public ArrayList<Item> getAssests(){
     //	Collection.sort(items,new )
     //}

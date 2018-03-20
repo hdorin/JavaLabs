@@ -4,7 +4,6 @@ class Building extends Asset {
     private Integer area, price;
 
     Building(String name, Integer area, Integer price){
-        //super(name);
     	this.name=name;
         this.area = area;
         this.price = price;

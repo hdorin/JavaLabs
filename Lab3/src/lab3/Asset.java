@@ -1,6 +1,8 @@
 package lab3;
 
-abstract class Asset extends Item{
-    abstract public Integer computeProfit();
-//    default public Integer computeFinancialRisk();
+interface Asset {
+    double computeProfit();
+    default double computeFinancialRisk(){
+        return 0.2;
+    }
 }
