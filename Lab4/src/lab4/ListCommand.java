@@ -8,7 +8,7 @@ public final class ListCommand implements KeyboardCommands {
 	@Override
 	public void use(String command) {
 		// TODO Auto-generated method stub
-		
+		catalog.list();
 	}
 
 }

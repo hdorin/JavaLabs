@@ -18,7 +18,7 @@ public class Main {
 		while(true) {
 			System.out.println("Command:");
 			command=keyboard.nextLine();
-			if(Pattern.matches("add*", command)==true) {
+			if(Pattern.matches("add .*", command)==true) {
 				addC.use(command);
 			}
 			if(Pattern.matches("list", command)==true) {
