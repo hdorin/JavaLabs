@@ -5,24 +5,22 @@ import java.awt.*;
 
 class DocumentForm extends JPanel {
 	private static final long serialVersionUID = 1L;
-	private final CatalogFrame frame;
     private JLabel titleLabel = new JLabel("Title of the document");
+    private JButton addButton = new JButton("Add to repository");
+    CatalogList list;
 
-    DocumentForm(CatalogFrame frame){
-        this.frame=frame;
+    DocumentForm(CatalogList list){
+            this.list = list;
         init();
     }
     private void init() {
-//        addButton.addActionListener();
+//        addButton.addActionListener()
         this.setLayout(new GridLayout(2, 1));
 
         JPanel firstPanel = new JPanel(new GridLayout(4,1));
-//        firstPanel.setPreferredSize(new Dimension(4*100,4*100));
 
-//        this.addDocument("ce mai faci ?");
-
-        String title = "<html><i><font color='black'>" +
-                "Add Document" + "</font></i></html>";
+        String title = "<html><font color='black'>" +
+                "Add Document" + "</font></html>";
         this.setBorder(BorderFactory.createTitledBorder(title));
 
         firstPanel.add(titleLabel);
@@ -43,15 +41,17 @@ class DocumentForm extends JPanel {
 
         JLabel pubyear = new JLabel("Publication Year");
         secondPanel.add(pubyear);
-        JSpinner yearField = new JSpinner(new SpinnerNumberModel(1950, 1900, 2017, 1));
+        JSpinner yearField = new JSpinner(new SpinnerNumberModel(1959, 1900, 2018, 1));
         JSpinner.NumberEditor editor = new JSpinner.NumberEditor(yearField,"#");
         yearField.setEditor(editor);
 
         secondPanel.add(yearField);
-        JButton bt = new JButton("Add to repository");
-        bt.setPreferredSize(new Dimension(10, 10));
 
-        secondPanel.add(bt);
+        addButton.setPreferredSize(new Dimension(10, 10));
+        addButton.addActionListener(e -> this.list.addDocument(title_of_doc.getText() + ", " + yearField.getValue() + " [" + path.getText() + ']'));
+        addButton.addActionListener(e -> System.out.println(title_of_doc.getText() + ", " + yearField.getValue() + " [" + path.getText() + ']'));
+
+        secondPanel.add(addButton);
 
         this.add(secondPanel);
     }
