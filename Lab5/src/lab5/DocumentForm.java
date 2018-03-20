@@ -19,6 +19,7 @@ class DocumentForm extends JPanel {
 
         JPanel firstPanel = new JPanel(new GridLayout(4,1));
 
+
         String title = "<html><font color='black'>" +
                 "Add Document" + "</font></html>";
         this.setBorder(BorderFactory.createTitledBorder(title));
