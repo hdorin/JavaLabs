@@ -12,7 +12,7 @@ public class CatalogFrame extends JFrame {
    	
     public CatalogFrame() {
     	super("Visual Document Manager");
-        this.setLayout(new GridLayout(2, 2));
+        this.setLayout(new GridLayout(3, 1));
         //aici adaugi tu, Mihai
         catalogList=new CatalogList();
         
