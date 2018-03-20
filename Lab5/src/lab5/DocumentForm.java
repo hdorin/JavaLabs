@@ -19,7 +19,7 @@ class DocumentForm extends JPanel {
         JPanel firstPanel = new JPanel(new GridLayout(4,1));
 //        firstPanel.setPreferredSize(new Dimension(4*100,4*100));
 
-
+//        this.addDocument("ce mai faci ?");
 
         String title = "<html><i><font color='black'>" +
                 "Add Document" + "</font></i></html>";
@@ -56,6 +56,6 @@ class DocumentForm extends JPanel {
         this.add(secondPanel);
     }
     private void addDocument() {
-        //frame.list.addDocument(...);
+//        frame.list.addDocument("ce mai faci?");
     }
 }

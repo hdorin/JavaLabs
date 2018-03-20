@@ -12,7 +12,6 @@ public class CatalogList extends JList {
         this.setModel(model);        
     }    
     public void addDocument(String item) {
-
         model.addElement(item);
     }
 }

@@ -6,21 +6,19 @@ import javax.swing.*;
 
 class CatalogFrame extends JFrame {
 	private static final long serialVersionUID = 1L;
-	private DocumentForm form;
-    private CatalogList catalogList;
-    private ControlPanel controlPanel;
+    //aici adaugi tu, Mihai
+
+    private DocumentForm form = new DocumentForm(this);
+    CatalogList catalogList = new CatalogList();
+    private ControlPanel controlPanel = new ControlPanel(this);
    	
     CatalogFrame() {
     	super("Visual Document Manager");
         this.setLayout(new GridLayout(3, 1));
-        //aici adaugi tu, Mihai
 
-        form = new DocumentForm(this);
         this.add(form);
 
-        catalogList=new CatalogList();
         this.add(catalogList);
-        controlPanel=new ControlPanel(this);
         this.add(controlPanel);
 
         init();
