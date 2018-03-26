@@ -11,4 +11,8 @@ public final class ListCommand implements KeyboardCommands {
 		catalog.list();
 	}
 
+	@Override
+	public void open(Document doc) {
+
+	}
 }

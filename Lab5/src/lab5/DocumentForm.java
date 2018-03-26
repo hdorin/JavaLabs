@@ -14,11 +14,9 @@ class DocumentForm extends JPanel {
         init();
     }
     private void init() {
-//        addButton.addActionListener()
         this.setLayout(new GridLayout(2, 1));
 
-        JPanel firstPanel = new JPanel(new GridLayout(4,1));
-
+        JPanel firstPanel = new JPanel(new GridLayout(5,1));
 
         String title = "<html><font color='black'>" +
                 "Add Document" + "</font></html>";
@@ -37,18 +35,14 @@ class DocumentForm extends JPanel {
 
         this.add(firstPanel);
 
-        JPanel secondPanel = new JPanel(new GridLayout(4,1));
-        secondPanel.setPreferredSize(new Dimension(100,100));
-
+        JPanel secondPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         JLabel pubyear = new JLabel("Publication Year");
-        secondPanel.add(pubyear);
+        firstPanel.add(pubyear);
         JSpinner yearField = new JSpinner(new SpinnerNumberModel(1959, 1900, 2018, 1));
         JSpinner.NumberEditor editor = new JSpinner.NumberEditor(yearField,"#");
         yearField.setEditor(editor);
-
         secondPanel.add(yearField);
 
-        addButton.setPreferredSize(new Dimension(10, 10));
         addButton.addActionListener(e -> this.list.addDocument(title_of_doc.getText() + ", " + yearField.getValue() + " [" + path.getText() + ']'));
         addButton.addActionListener(e -> System.out.println(title_of_doc.getText() + ", " + yearField.getValue() + " [" + path.getText() + ']'));
 

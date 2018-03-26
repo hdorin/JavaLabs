@@ -8,10 +8,16 @@ final class AddCommand implements KeyboardCommands {
 		//catalog.add();
 		this.catalog=catalog;
 	}
+
+	@Override
+	public void open(Document doc) {
+
+	}
+
 	@Override
 	public void use(String command) {
 		// TODO Auto-generated method stub
-		if(Pattern.matches("add book .*", command)==true) {
+		if(Pattern.matches("add book .*", command)) {
 			 String[] arr = command.split("\"");
 			 String[] aut = new String[50];
 			 int i;
@@ -24,16 +30,13 @@ final class AddCommand implements KeyboardCommands {
 				}
 				 arr[4]=arr[4].replaceAll("\\s+","");
 				catalog.add(new Book(arr[1],arr[3],Integer.parseInt(arr[4]),aut));
-			} catch (NumberFormatException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (InvalidInputException e) {
+			} catch (NumberFormatException | InvalidInputException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			System.out.println("You added a book!");
 		} else
-		if(Pattern.matches("add article .*", command)==true) {
+		if(Pattern.matches("add article .*", command)) {
 			 String[] arr = command.split("\"");
 			 String[] aut = new String[50];
 			 int i;
@@ -46,16 +49,13 @@ final class AddCommand implements KeyboardCommands {
 				}
 				 arr[4]=arr[4].replaceAll("\\s+","");
 				catalog.add(new Article(arr[1],arr[3],Integer.parseInt(arr[4]),aut));
-			} catch (NumberFormatException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (InvalidInputException e) {
+			} catch (NumberFormatException | InvalidInputException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			System.out.println("You added an article!");
 		} else
-		if(Pattern.matches("add manual .*", command)==true) {
+		if(Pattern.matches("add manual .*", command)) {
 			 String[] arr = command.split("\"");
 			 String[] aut = new String[50];
 			 int i;
@@ -68,10 +68,7 @@ final class AddCommand implements KeyboardCommands {
 				}
 				 arr[4]=arr[4].replaceAll("\\s+","");
 				catalog.add(new Article(arr[1],arr[3],Integer.parseInt(arr[4]),aut));
-			} catch (NumberFormatException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (InvalidInputException e) {
+			} catch (NumberFormatException | InvalidInputException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}

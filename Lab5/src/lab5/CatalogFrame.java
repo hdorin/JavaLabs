@@ -1,12 +1,12 @@
 package lab5;
 
-import java.awt.*;
 import javax.swing.*;
+import java.awt.*;
 
 class CatalogFrame extends JFrame {
 	private static final long serialVersionUID = 1L;
-    //aici adaugi tu, Mihai
-    private CatalogList catalogList = new CatalogList();
+
+	CatalogList catalogList = new CatalogList();
     private DocumentForm form = new DocumentForm(catalogList);
     private ControlPanel controlPanel = new ControlPanel(this);
 
@@ -15,8 +15,7 @@ class CatalogFrame extends JFrame {
         this.setLayout(new GridLayout(3, 1));
 
         this.add(form);
-        this.catalogList.addDocument("din catalog frame");
-
+//        this.catalogList.addDocument("mihai este cel mai tare");
         this.add(catalogList);
         this.add(controlPanel);
 
@@ -24,7 +23,6 @@ class CatalogFrame extends JFrame {
     }
     private void init() {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-//        setSize(500,500);
         this.pack();
         
     }

@@ -1,6 +1,7 @@
 package lab5;
 
 import javax.swing.*;
+import java.util.Arrays;
 
 public class CatalogList extends JList {
     private DefaultListModel<Object> model = new DefaultListModel<>();
@@ -13,5 +14,10 @@ public class CatalogList extends JList {
     }    
     public void addDocument(String item) {
         model.addElement(item);
+    }
+
+    public String getDocument() {
+
+        return Arrays.toString(model.getListDataListeners());
     }
 }

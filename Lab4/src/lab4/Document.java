@@ -73,8 +73,6 @@ abstract class Document implements Serializable {
 			try{
 				FileReader f = new FileReader("fisier.txt");
 				f.close();
-			} catch (FileNotFoundException e) {
-				//throw new InvalidInputException("Invalid path!");
 			} catch (Exception e) {
 				//throw new InvalidInputException("Unexpected error!");
 			}		
