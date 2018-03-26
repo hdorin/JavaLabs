@@ -41,11 +41,6 @@ public class ControlPanel extends JPanel{
 				}
 			});
 			resetButton.addActionListener(e->image=new BufferedImage(100, 200, BufferedImage.TYPE_INT_ARGB));
-			
-			
-			
-
-
 	}
 	void init() {
 		this.add(saveButton);
