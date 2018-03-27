@@ -23,10 +23,10 @@ public class DrawingFrame extends JFrame {
         
         Canvas canvas=new Canvas();
         ControlPanel cPanel=new ControlPanel(canvas);
-        //Toolbar toolbar = new Toolbar();
+        Toolbar toolbar = new Toolbar();
         add(canvas, BorderLayout.CENTER);
         add(cPanel,BorderLayout.SOUTH);
-        
+        add(toolbar,BorderLayout.NORTH);
         //frame.pack();
  
 
