@@ -38,6 +38,7 @@ class DocumentForm extends JPanel {
         JPanel secondPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         JLabel pubyear = new JLabel("Publication Year");
         firstPanel.add(pubyear);
+
         JSpinner yearField = new JSpinner(new SpinnerNumberModel(1959, 1900, 2018, 1));
         JSpinner.NumberEditor editor = new JSpinner.NumberEditor(yearField,"#");
         yearField.setEditor(editor);

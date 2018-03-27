@@ -2,15 +2,11 @@ package lab6;
 
 
 
-import java.awt.Image;
+import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-
-import javax.imageio.ImageIO;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
 
 
 public class ControlPanel extends JPanel{
