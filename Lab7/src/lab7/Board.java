@@ -1,5 +1,13 @@
 package lab7;
 
-public class Board {
+import java.util.List;
+
+class Board {
+
+    List<String> words;
+    void addWord(Player player, String s) {
+        System.out.println("Player" + player + " submitted the word " + s );
+        words.add(s);
+    }
 
 }
