@@ -1,5 +1,8 @@
 package lab7;
 
+import java.util.Dictionary;
+import java.util.List;
+
 public class Game {
     private Bag bag;
     private Board board;
@@ -11,4 +14,28 @@ public class Game {
     }
     //Create getters and setters
     //Create the method that will start the game: start one thread for each player
+	/**
+	 * @return the bag
+	 */
+	public Bag getBag() {
+		return bag;
+	}
+	/**
+	 * @param bag the bag to set
+	 */
+	public void setBag(Bag bag) {
+		this.bag = bag;
+	}
+	/**
+	 * @return the board
+	 */
+	public Board getBoard() {
+		return board;
+	}
+	/**
+	 * @param board the board to set
+	 */
+	public void setBoard(Board board) {
+		this.board = board;
+	}
 }
