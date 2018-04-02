@@ -1,5 +1,8 @@
 package lab7;
-
+/*
+ * Dorin face aici
+ */
+import java.util.ArrayList;
 import java.util.Dictionary;
 import java.util.List;
 
