@@ -4,16 +4,23 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-
+import java.util.Random;
 /*
  * Dorin face aici
  */
 class Bag {
+    public Queue<Character> getLetters() {
+        return letters;
+    }
+
     private final Queue<Character> letters = new LinkedList<>();
     Bag() { // Add all the letters from 'a' to 'z' in the bag.
-    	for(char i='a';i<='d';i++) {
-    		letters.add(i);
-    	}
+        Random rand = new Random();
+    	for(char i=0;i<100;i++) {
+//    		letters.add(i);
+            int randomNum = rand.nextInt(26);
+            letters.add((char)(randomNum  + 'a'));
+        }
     }
     
     synchronized List<Character> extractLetters(int howMany) {
