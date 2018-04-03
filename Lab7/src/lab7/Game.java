@@ -17,6 +17,13 @@ public class Game {
     }
     //Create getters and setters
     //Create the method that will start the game: start one thread for each player
+    public void startGame() {
+    	Thread t;
+    	for(Player plyr : players) {
+    		t=new Thread(plyr);
+    		t.start();
+    	}
+    }
 	/**
 	 * @return the bag
 	 */
