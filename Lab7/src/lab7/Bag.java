@@ -18,7 +18,7 @@ class Bag {
         Random rand = new Random();
     	for(char i=0;i<100;i++) {
 //    		letters.add(i);
-            int randomNum = rand.nextInt(26 + 1);
+            int randomNum = rand.nextInt(26);
             letters.add((char)(randomNum  + 'a'));
         }
     }

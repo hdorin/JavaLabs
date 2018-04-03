@@ -6,6 +6,7 @@ public class Main {
 
 		Game game = new Game();
 		game.setBag(new Bag());
+
 		Board board = new Board(3);
 		game.setBoard(board);
 		game.addPlayer(new Player(1, board));
