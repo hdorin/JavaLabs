@@ -14,7 +14,11 @@ public class Player implements Runnable {
     private Board board;
     private static boolean gameOver = false;
 
-    Player(int index, Board board) {
+    public static boolean isGameOver() {
+		return gameOver;
+	}
+
+	Player(int index, Board board) {
         this.index = index;
         this.board = board;
     }
