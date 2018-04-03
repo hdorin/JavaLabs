@@ -12,7 +12,7 @@ public class Player implements Runnable {
 
     private int index;
     private Board board;
-    private boolean gameOver = false;
+    private static boolean gameOver = false;
 
     Player(int index, Board board) {
         this.index = index;
@@ -36,9 +36,11 @@ public class Player implements Runnable {
 
     private StringBuilder createSubmitWord() throws InterruptedException, IndexOutOfBoundsException {
         List extracted = game.getBag().extractLetters(1);
-//        if (extracted.isEmpty()) {
-//            return "";
-//        }
+        if (extracted.isEmpty()) {
+            System.out.println("Game is over!");
+            gameOver=true;
+            return null;
+        }
         StringBuilder word = new StringBuilder();
         for (int i = 0; i < 10; i++) {
             try {
@@ -69,7 +71,12 @@ public class Player implements Runnable {
             if (index == board.curentPlayer()) {
                 System.out.println("Player " + index + " - My turn. Post word");
                 try {
-                    board.postWord(index, "Player " + index + createSubmitWord());
+                	StringBuilder submittedWord=createSubmitWord();
+                    if(!gameOver) {
+                    	board.postWord(index, "Player " + index + submittedWord);
+                    }else {
+                    	return ;
+                    }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

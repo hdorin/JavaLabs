@@ -46,7 +46,7 @@ class Board {
     }
 
     synchronized void postWord(int playerIndex, String word) {
-        System.out.println("ScrabbleBoard - word posted:" + word);
+    	System.out.println("ScrabbleBoard - word posted:" + word);
 
         nextPlayer();
 

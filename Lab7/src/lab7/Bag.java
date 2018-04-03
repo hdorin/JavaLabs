@@ -11,7 +11,7 @@ import java.util.Queue;
 class Bag {
     private final Queue<Character> letters = new LinkedList<>();
     Bag() { // Add all the letters from 'a' to 'z' in the bag.
-    	for(char i='a';i<='z';i++) {
+    	for(char i='a';i<='d';i++) {
     		letters.add(i);
     	}
     }
