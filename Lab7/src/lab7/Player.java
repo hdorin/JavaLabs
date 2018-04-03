@@ -34,14 +34,18 @@ public class Player implements Runnable {
 //	}
 
 
-    private StringBuilder createSubmitWord() throws InterruptedException {
+    private StringBuilder createSubmitWord() throws InterruptedException, IndexOutOfBoundsException {
         List extracted = game.getBag().extractLetters(1);
 //        if (extracted.isEmpty()) {
 //            return "";
 //        }
         StringBuilder word = new StringBuilder();
         for (int i = 0; i < 10; i++) {
-            word.append(extracted.get(0));
+            try {
+                word.append(extracted.get(0));
+            }catch (IndexOutOfBoundsException e){
+                e.printStackTrace();
+            }
         }
         return word;
     }
@@ -69,14 +73,12 @@ public class Player implements Runnable {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-
             }
             else {
                 System.out.println("Player " + index + " - Waiting for my turn. Thinking of word");
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
                 Thread.yield();
