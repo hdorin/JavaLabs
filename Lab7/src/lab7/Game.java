@@ -6,12 +6,12 @@ import java.util.ArrayList;
 import java.util.Dictionary;
 import java.util.List;
 
-public class Game {
+class Game {
     private Bag bag;
     private Board board;
     private Dictionary dictionary;
     private final List<Player> players = new ArrayList<>();
-    public void addPlayer(Player player) {
+    void addPlayer(Player player) {
         players.add(player);
         player.setGame(this);
     }
@@ -27,25 +27,31 @@ public class Game {
 	/**
 	 * @return the bag
 	 */
-	public Bag getBag() {
+    Bag getBag() {
 		return bag;
 	}
 	/**
 	 * @param bag the bag to set
 	 */
-	public void setBag(Bag bag) {
+    void setBag(Bag bag) {
 		this.bag = bag;
 	}
 	/**
 	 * @return the board
 	 */
-	public Board getBoard() {
+    Board getBoard() {
 		return board;
 	}
 	/**
 	 * @param board the board to set
 	 */
-	public void setBoard(Board board) {
+    void setBoard(Board board) {
 		this.board = board;
 	}
+
+    void start() {
+		for (Player p: players) {
+			new Thread(p).start();
+		}
+    }
 }
