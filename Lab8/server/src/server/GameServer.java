@@ -8,6 +8,7 @@ public class GameServer {
     private static final int PORT = 8100;
     private ServerSocket serverSocket;
     private boolean running = false;
+    static GameCounter counter = new GameCounter();
 
     public static void main(String[] args)  {
         GameServer server = new GameServer();
@@ -26,7 +27,8 @@ public class GameServer {
 				socket = serverSocket.accept();
 				System.out.println("Accepted!");
 				if(running==true) {
-					new ClientThread(socket,this).start();
+					counter.increment();
+					new ClientThread(socket,this,counter).start();
 				}
 				
 				// Execute the client's request in a new thread

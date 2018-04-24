@@ -9,13 +9,15 @@ import java.net.Socket;
 public class ClientThread extends Thread {
 	private Socket socket = null;
 	private final GameServer server;
+	static GameCounter counter;
 
 	// Create the constructor that receives a reference to the server and to the
 	// client socket
-	public ClientThread(Socket socket,GameServer server) {
+	public ClientThread(Socket socket,GameServer server,GameCounter counter) {
 		// TODO Auto-generated constructor stub
 		this.socket=socket;
 		this.server=server;
+		this.counter=counter;
 		
 	}
 
@@ -56,6 +58,7 @@ public class ClientThread extends Thread {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} // ... usse try-catch-finally to handle the exceptions!
+		counter.decrement();
 	}
 
 	private String execute(String request) {
