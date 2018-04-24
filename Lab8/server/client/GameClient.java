@@ -1,4 +1,4 @@
-package lab8c;
+package client;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,8 +11,7 @@ public class GameClient {
     private final static String SERVER_ADDRESS = "127.0.0.1";
     private final static int PORT = 8100;
 
-
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         GameClient client = new GameClient();
         while (true) {
             String request = client.readFromKeyboard();

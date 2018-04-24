@@ -24,11 +24,15 @@ public class GameServer {
     		Socket socket;
 			try {
 				socket = serverSocket.accept();
-				new ClientThread(socket,this).start();
+				System.out.println("Accepted!");
+				if(running==true) {
+					new ClientThread(socket,this).start();
+				}
+				
 				// Execute the client's request in a new thread
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+				//e.printStackTrace();
 			}
     	}
 		
@@ -46,5 +50,6 @@ public class GameServer {
 	public void stop() throws IOException {
         this.running = false;
         serverSocket.close();
+        System.out.println("Server shut down!");
     }	
 }

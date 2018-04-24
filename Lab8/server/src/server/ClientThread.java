@@ -8,14 +8,14 @@ import java.net.Socket;
 
 public class ClientThread extends Thread {
 	private Socket socket = null;
-	private final GameServer server=null;
+	private final GameServer server;
 
 	// Create the constructor that receives a reference to the server and to the
 	// client socket
 	public ClientThread(Socket socket,GameServer server) {
 		// TODO Auto-generated constructor stub
 		this.socket=socket;
-		//this.server=server;
+		this.server=server;
 		
 	}
 
@@ -36,7 +36,11 @@ public class ClientThread extends Thread {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
 		String response = execute(request);
+		if(request.compareTo("stop")==0) {
+			return ;
+		}
 		PrintWriter out = null;
 		try {
 			out = new PrintWriter(socket.getOutputStream());
@@ -57,6 +61,7 @@ public class ClientThread extends Thread {
 	private String execute(String request) {
 		if(request.compareTo("stop")==0) {
 			try {
+				socket.close();
 				server.stop();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
