@@ -55,7 +55,7 @@ public class ClientThread extends Thread {
 	}
 
 	private String execute(String request) {
-		return "Server received the request ... ";
+		return "Server received the request: " + request;
 		// display the message: "Server received the request ... "
 	}
 }
