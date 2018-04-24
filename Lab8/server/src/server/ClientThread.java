@@ -12,7 +12,7 @@ public class ClientThread extends Thread {
 
 	// Create the constructor that receives a reference to the server and to the
 	// client socket
-	public ClientThread(Socket socket) {
+	public ClientThread(Socket socket,GameServer server) {
 		// TODO Auto-generated constructor stub
 		this.socket=socket;
 		//this.server=server;
@@ -55,6 +55,14 @@ public class ClientThread extends Thread {
 	}
 
 	private String execute(String request) {
+		if(request.compareTo("stop")==0) {
+			try {
+				server.stop();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		return "Server received the request: " + request;
 		// display the message: "Server received the request ... "
 	}

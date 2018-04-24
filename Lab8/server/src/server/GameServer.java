@@ -24,7 +24,7 @@ public class GameServer {
     		Socket socket;
 			try {
 				socket = serverSocket.accept();
-				new ClientThread(socket).start();
+				new ClientThread(socket,this).start();
 				// Execute the client's request in a new thread
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
