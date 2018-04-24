@@ -14,22 +14,33 @@ public class GameServer {
         server.init();
         server.waitForClients(); //... handle the exceptions!
     }
-    ... // Implement the init() method: create the serverSocket and set running to true
-    ... // Implement the waitForClients() method: while running is true, create a new socket for every incoming client and start a ClientThread to execute its request.
+    // Implement the init() method: create the serverSocket and set running to true
+    // Implement the waitForClients() method: while running is true, create a new socket for every incoming client and start a ClientThread to execute its request.
 	
     private void waitForClients() {
 		// TODO Auto-generated method stub
     	while (running==true) {
     		System.out.println ("Waiting for a client ...");
-    		Socket socket = serverSocket.accept();
-    		// Execute the client's request in a new thread
-    		new ClientThread(socket).start();
+    		Socket socket;
+			try {
+				socket = serverSocket.accept();
+				new ClientThread(socket).start();
+				// Execute the client's request in a new thread
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
     	}
 		
 	}
 	private void init() {
 		// TODO Auto-generated method stub
-		serverSocket = new ServerSocket(PORT);
+		try {
+			serverSocket = new ServerSocket(PORT);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		running=true;
 	}
 	public void stop() throws IOException {
