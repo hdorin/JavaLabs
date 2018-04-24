@@ -20,12 +20,15 @@ public class GameServer {
 	
     private void waitForClients() {
 		// TODO Auto-generated method stub
-    	while (running==true) {
+    	do {
     		System.out.println ("Waiting for a client ...");
-    		Socket socket;
+    		Socket socket=null;
 			try {
-				socket = serverSocket.accept();
-				System.out.println("Accepted!");
+				if(running==true) {
+					socket = serverSocket.accept();
+					System.out.println("Accepted!");
+				}
+				
 				if(running==true) {
 					counter.increment();
 					new ClientThread(socket,this,counter).start();
@@ -36,7 +39,7 @@ public class GameServer {
 				// TODO Auto-generated catch block
 				//e.printStackTrace();
 			}
-    	}
+    	}while (running==true&&counter.getCounter()>0);
 		
 	}
 	private void init() {
