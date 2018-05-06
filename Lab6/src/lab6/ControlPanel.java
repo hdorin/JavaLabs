@@ -1,12 +1,8 @@
 package lab6;
 
-
-
 import javax.imageio.ImageIO;
 import javax.swing.*;
-
-import java.awt.Image;
-import java.awt.image.BufferedImage;
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
@@ -27,7 +23,7 @@ public class ControlPanel extends JPanel{
 			
 			loadButton.addActionListener(e->{
 				try{
-		            File image2 = new File("C:\\Users\\haloc\\OneDrive\\Protected\\Java\\An 2 FII\\JavaLabs\\Lab6\\1.jpg");
+		            File image2 = new File("C:\\Users\\Dell\\IdeaProjects\\JavaLabs\\Lab6\\1.jpg");
 		            image = ImageIO.read(image2);
 
 		        }

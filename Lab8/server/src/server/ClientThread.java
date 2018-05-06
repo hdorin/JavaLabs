@@ -7,71 +7,56 @@ import java.io.PrintWriter;
 import java.net.Socket;
 
 public class ClientThread extends Thread {
-	private Socket socket = null;
-	private final GameServer server;
-	static GameCounter counter;
+    private Socket socket;
+    private final GameServer gameServer;
 
-	// Create the constructor that receives a reference to the server and to the
-	// client socket
-	public ClientThread(Socket socket,GameServer server,GameCounter counter) {
-		// TODO Auto-generated constructor stub
-		this.socket=socket;
-		this.server=server;
-		this.counter=counter;
-		
-	}
+    private BufferedReader in;
+    private PrintWriter out;
 
-	public void run() {
-		BufferedReader in = null;
+    ClientThread(Socket socket, GameServer gameServer) throws IOException {
 
-		try {
-			in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		// client -> server stream
-		String request=null;
-		try {
-			request = in.readLine();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+        this.gameServer = gameServer;
+        this.socket = socket;
+        in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        out = new PrintWriter(socket.getOutputStream(), true);
 
-		String response = execute(request);
-		if(request.compareTo("stop")==0) {
-			return ;
-		}
-		PrintWriter out = null;
-		try {
-			out = new PrintWriter(socket.getOutputStream());
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} // server -> client stream
-		out.println(response);
-		out.flush();
-		try {
-			socket.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} // ... usse try-catch-finally to handle the exceptions!
-		counter.decrement();
-	}
+    }
 
-	private String execute(String request) {
-		if(request.compareTo("stop")==0) {
-			try {
-				socket.close();
-				server.stop();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		return "Server received the request: " + request;
-		// display the message: "Server received the request ... "
-	}
+    public void run() {
+        //client -> server stream
+
+        String request = "";
+        while (!request.equals("exit")) {
+            try {
+                request = in.readLine();
+                if (request.equalsIgnoreCase("create")) {
+                    System.out.println("command create");
+                    String player = in.readLine();
+                    System.out.println("player = " + player);
+                    Integer maxNumber = Integer.valueOf(in.readLine());
+                    System.out.println("maxNumber = " + maxNumber);
+                    GuessingGame guessingGame = new GuessingGame(player, maxNumber);
+                    guessingGame.startGuessingGame(in, out);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            String response = execute(request);
+            //server -> client stream
+
+            out.println(response);
+        }
+
+        try {
+            gameServer.stop();
+            socket.close(); //... use try-catch-finally to handle the exceptions!
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private String execute(String request) {
+        return "Server received the request ... " + request;
+    }
 }
