@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketException;
+import java.net.SocketTimeoutException;
 
 class GameServer {
     private static final int PORT = 8100;
@@ -14,7 +15,9 @@ class GameServer {
     void init() {
         try {
             serverSocket = new ServerSocket(PORT);
-        } catch (IOException e) {
+//            serverSocket.setSoTimeout(5000);
+        }
+        catch (IOException e) {
             e.printStackTrace();
         }
         running = true;
@@ -29,8 +32,12 @@ class GameServer {
             try {
                 socket = serverSocket.accept();
                 System.out.println("client accepted, socket is: " + socket);
+                socket.setSoTimeout(10000);
                 new ClientThread(socket, server).start();
 
+            }
+            catch (SocketTimeoutException e) {
+                System.out.println("timeout");
             }
             catch (SocketException e){
                 System.out.println("Server is shutdown. Goodbye !!!");

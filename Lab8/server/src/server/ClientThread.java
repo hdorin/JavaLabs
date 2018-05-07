@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.net.SocketTimeoutException;
 
 public class ClientThread extends Thread {
     private Socket socket;
@@ -13,17 +14,20 @@ public class ClientThread extends Thread {
     private BufferedReader in;
     private PrintWriter out;
 
-    ClientThread(Socket socket, GameServer gameServer) throws IOException {
+    ClientThread(Socket socket, GameServer gameServer) throws SocketTimeoutException, IOException {
 
         this.gameServer = gameServer;
         this.socket = socket;
         in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         out = new PrintWriter(socket.getOutputStream(), true);
 
+        this.socket.setSoTimeout(10000);
+
     }
 
     public void run() {
         //client -> server stream
+
 
         String request = "";
         while (!request.equals("exit")) {
@@ -38,7 +42,17 @@ public class ClientThread extends Thread {
                     GuessingGame guessingGame = new GuessingGame(player, maxNumber);
                     guessingGame.startGuessingGame(in, out);
                 }
-            } catch (IOException e) {
+            }
+            catch (SocketTimeoutException e){
+                System.out.println("timeout exception");
+                try {
+                    gameServer.stop();
+//                    socket.close();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+            }
+            catch (IOException e) {
                 e.printStackTrace();
             }
             String response = execute(request);
