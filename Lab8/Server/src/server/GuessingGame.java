@@ -20,6 +20,7 @@ class GuessingGame {
 
     void startGuessingGame(BufferedReader in, PrintWriter out) throws IOException{
         System.out.println("game started");
+
         String request = "";
         Integer number = 0;
         while(!request.equalsIgnoreCase("close")){
