@@ -1,6 +1,8 @@
 package lab9;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 class Database {
     private static final String URL = "jdbc:oracle:thin:@localhost:1521:xe";
@@ -18,12 +20,23 @@ class Database {
 
     //Implement the method createConnection()
     private static void createConnection() {
+        try {
+            Class.forName(URL);
+            connection = DriverManager.getConnection(URL, USER, PASSWORD);
+
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
 
     }
 
     //Implement the method closeConnection()
     static void closeConnection() {
-
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
     //Implement the method commit()
     static void commit() {
