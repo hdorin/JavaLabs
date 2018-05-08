@@ -3,9 +3,9 @@ package lab9;
 import java.sql.*;
 
 class DatabaseMySql {
-    private static final String URL = "jdbc:mysql://localhost/test";
-    private static final String USER = "localhost@root";
-    private static final String PASSWORD = "root";
+    private static final String URL = "jdbc:mysql://localhost/musicalbums";
+    private static final String USER = "dba";
+    private static final String PASSWORD = "sql";
     private static Connection connection = null;
 
     private DatabaseMySql() {
@@ -24,7 +24,7 @@ class DatabaseMySql {
             DriverManager.registerDriver(new com.mysql.jdbc.Driver());
             Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
             Statement stmt = conn.createStatement();
-            String sql = "SELECT * FROM test";
+            String sql = "SELECT * FROM albums";
             ResultSet rs = stmt.executeQuery(sql);
         } catch (SQLException e) {
             e.printStackTrace();
