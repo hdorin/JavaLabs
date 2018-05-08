@@ -4,8 +4,8 @@ import java.sql.*;
 
 class DatabaseMySql {
     private static final String URL = "jdbc:mysql://localhost/test";
-    private static final String USER = "localhost@root";
-    private static final String PASSWORD = "root";
+    private static final String USER = "dba";
+    private static final String PASSWORD = "sql";
     private static Connection connection = null;
 
     private DatabaseMySql() {
