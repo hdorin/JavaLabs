@@ -22,14 +22,20 @@ class DatabaseMySql {
     private static void createConnection() {
         try {
             DriverManager.registerDriver(new com.mysql.jdbc.Driver());
-            Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
-            Statement stmt = conn.createStatement();
-            String sql = "SELECT * FROM albums";
-            ResultSet rs = stmt.executeQuery(sql);
+            conn = DriverManager.getConnection(URL, USER, PASSWORD);
+//            Statement stmt = conn.createStatement();
+//            String sql = "INSERT INTO artists(name, country) VALUES ('Alexandru','Romania')";
+//            int rs = stmt.executeUpdate(sql);
+//            System.out.println(rs);
+//
+//            while(rs.next()) {
+//                System.out.println(rs.getInt(1));
+//            }
             conn.setAutoCommit(false);
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
     }
 
     //Implement the method closeConnection()
@@ -43,21 +49,21 @@ class DatabaseMySql {
 
     //Implement the method commit()
     static void commit() {
-    		try {
-				conn.commit();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+        try {
+            conn.commit();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
     //Implement the method rollback()
     static void rollback() {
-    	try {
-			conn.rollback();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+        try {
+            conn.rollback();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 }

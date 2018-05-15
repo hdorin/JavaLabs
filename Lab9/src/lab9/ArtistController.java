@@ -1,9 +1,10 @@
 package lab9;
 
+import java.sql.Connection;
 import java.sql.*;
 
-class ArtistController {
-    void create(String name, String country) throws SQLException {
+public class ArtistController {
+    public void create(String name, String country) throws SQLException {
         Connection con = DatabaseMySql.getConnection();
         try (PreparedStatement pstmt = con.prepareStatement("insert into artists (name, country) values (?, ?)")) {
             pstmt.setString(1, name);
@@ -11,7 +12,7 @@ class ArtistController {
             pstmt.executeUpdate();
         }
     }
-    Integer findByName(String name) throws SQLException {
+    public Integer findByName(String name) throws SQLException {
         Connection con = DatabaseMySql.getConnection();
         try (Statement stmt = con.createStatement();
              ResultSet rs = stmt.executeQuery("select id from artists where name='" + name + "'")) {
