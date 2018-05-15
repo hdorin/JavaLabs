@@ -6,8 +6,8 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/Lab10/javax.persistence_2.2.0.v201708071007.jar"/>
-	<classpathentry kind="lib" path="/Lab10/mysql-connector-java-5.1.46.jar"/>
-	<classpathentry kind="lib" path="/Lab10/eclipselink.jar"/>
+	<classpathentry kind="lib" path="/Lab9/javax.persistence_2.2.0.v201708071007.jar"/>
+	<classpathentry kind="lib" path="/Lab9/mysql-connector-java-5.1.46.jar"/>
+	<classpathentry kind="lib" path="/Lab9/eclipselink.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
