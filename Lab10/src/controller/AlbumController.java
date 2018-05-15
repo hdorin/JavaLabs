@@ -13,10 +13,10 @@ public class AlbumController {
     public AlbumController(EntityManagerFactory emf) {
         this.emf = emf;
     }
-    public void create(Album album) {
+    public void create(Album artist) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
-        em.persist(album);
+        em.persist(artist);
         em.getTransaction().commit();
         em.close();
     }

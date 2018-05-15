@@ -17,7 +17,7 @@ public class ArtistController {
         em.getTransaction().begin();
         em.persist(artist);
         em.getTransaction().commit();
-        em.close();
+//        em.close();
     }
     public Artist findByName(String artistName) {
         EntityManager em = emf.createEntityManager();
